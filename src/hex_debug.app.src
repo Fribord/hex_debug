@@ -1,11 +1,10 @@
 {application, hex_debug,
  [
   {description, "hex debug plugin"},
-  {vsn, "1"},
+  {vsn, git},
   {registered, []},
   {applications, [
                   kernel,
-                  stdlib,
-		  hex
+                  stdlib
                  ]}
  ]}.
