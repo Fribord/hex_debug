@@ -24,9 +24,6 @@
 %% Supervisor callbacks
 -export([init/1]).
 
-%% Helper macro for declaring children of supervisor
--define(CHILD(I, Type), {I, {I, start_link, []}, permanent, 5000, Type, [I]}).
-
 %% ===================================================================
 %% API functions
 %% ===================================================================
@@ -39,5 +36,6 @@ start_link() ->
 %% ===================================================================
 
 init([]) ->
-    {ok, { {one_for_one, 5, 10}, []} }.
-
+    Server = {hex_debug_server, {hex_debug_server, start_link, []},
+	      permanent, 5000, worker, [hex_debug_server]},
+    {ok, { {one_for_one,3,5}, [Server]} }.
