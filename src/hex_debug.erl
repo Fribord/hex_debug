@@ -26,7 +26,9 @@
 -behaviour(hex_plugin).
 
 -export([validate_event/2, 
+	 event_spec/1,
 	 init_event/2,
+	 mod_event/2,
 	 add_event/3, 
 	 del_event/1, 
 	 output/2]).
@@ -59,8 +61,20 @@ init_event(_, _) ->
     ok.
 
 %%
+%% mod_event(in | out, Flags::[{atom(),term()}])
+%%
+mod_event(_, _) ->
+    ok.
+
+%%
 %% validate_event(in | out, Flags::[{atom(),term()}])
 %%
 validate_event(_Dir, _Flags) ->
     ok.
 
+%%
+%% return event specification in internal YANG format
+%% {Type,Value,Stmts}
+%%
+event_spec(_Dir) ->
+    [].
