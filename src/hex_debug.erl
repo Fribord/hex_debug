@@ -38,13 +38,13 @@
 %%     {ok, Ref:reference()} | {error, Reason}
 %%
 add_event(_Flags, _Signal, _Cb) ->
-    {error, no_input}.
+    {ok, make_ref()}.
 
 %%
 %%  del_event(Ref::reference()) ->
 %%     ok.
 del_event(_Ref) ->
-    {error, no_input}.
+    ok.
 
 %%
 %% output(Flags::[{atom(),term()}], Env::[{atom(),term()}]) ->
